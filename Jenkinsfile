@@ -11,7 +11,7 @@ pipeline {
         stage ('First step') {
             steps {
                 echo "Start"
-		sh 'ssh jenkins@10.202.2.48 \'hostname\''
+		sh 'ssh dark@10.202.2.48 \'hostname\''
                 echo "Doing something.."
                 echo "End"
 
