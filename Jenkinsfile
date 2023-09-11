@@ -18,6 +18,7 @@ pipeline {
             }
 
         }
+
 	stage ('Second step') {
 	    steps {
 		echo "Second step start"
