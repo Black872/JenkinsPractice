@@ -7,6 +7,7 @@ pipeline {
                 echo "Start"
                 echo "Doing something.."
                 echo "End"
+
             }
 
         }
