@@ -18,5 +18,11 @@ pipeline {
             }
 
         }
+	stage ('Second step') {
+	    steps {
+		echo "Second step start"
+		sh 'ssh dark@10.202.2.48 \'uptime\''
+	    }
+	}
     }
 }
