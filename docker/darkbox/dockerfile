@@ -1,5 +1,6 @@
 RUN echo hello
 RUN echo world
+FROM alpine
 RUN sudo apt update
 RUN sudo apt install tree -y
 CMD tail -f /dev/null
