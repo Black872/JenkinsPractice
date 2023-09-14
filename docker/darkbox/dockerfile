@@ -1,0 +1,5 @@
+RUN echo hello
+RUN echo world
+RUN sudo apt update
+RUN sudo apt install tree -y
+CMD tail -f /dev/null

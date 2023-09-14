@@ -1,0 +1,46 @@
+#!groovy
+// Run docker Build
+properties{[disableConcurrentBuilds()]}
+
+pipeline{
+    agent{
+        label "master"
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '6'))
+        timestamps()
+    }
+    stages{
+        stage("create docker image"){
+            steps{
+                echo "======== Start building image ========"
+                dir ('docker/darkbox') {
+                    sh 'docker build . '
+                }
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
